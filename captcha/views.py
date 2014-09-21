@@ -37,7 +37,7 @@ def getsize(font, text):
         return font.getsize(text)
 
 
-def captcha_image(request, key, scale=1):
+def captcha_image(request, key, scale=1, **kwargs):
     try:
         store = CaptchaStore.objects.get(hashkey=key)
     except CaptchaStore.DoesNotExist:
@@ -107,7 +107,7 @@ def captcha_image(request, key, scale=1):
     return response
 
 
-def captcha_audio(request, key):
+def captcha_audio(request, key, **kwargs):
     if settings.CAPTCHA_FLITE_PATH:
         try:
             store = CaptchaStore.objects.get(hashkey=key)
@@ -133,7 +133,7 @@ def captcha_audio(request, key):
     raise Http404
 
 
-def captcha_refresh(request):
+def captcha_refresh(request, **kwargs):
     """  Return json with new captcha for ajax refresh request """
     if not request.is_ajax():
         raise Http404
