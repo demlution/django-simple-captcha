@@ -1,10 +1,5 @@
-try:
-    from django.conf.urls import patterns, url
-except ImportError:
-    from django.conf.urls.defaults import patterns, url
-except ImportError：
-    from django.conf.urls import url
 
+from django.conf.urls import url
 import captcha.views
     
 urlpatterns = [
