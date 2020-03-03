@@ -9,6 +9,8 @@ def get_version(svn=False):
 
 
 def pillow_required():
+    return True
+
     def pil_version(version):
         try:
             return int(re.compile('[^\d]').sub('', version))
